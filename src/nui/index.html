@@ -43,7 +43,7 @@
       flex-direction: column; 
       overflow: hidden;
      border-radius: 5px;
-     background: #0e5c7b ;
+     background: #0D1C22 ;
       /* From https://css.glass */
 /*      
      
@@ -93,7 +93,7 @@
       min-height: 45%;
       /*min-height: min-content;*/
       width: 100%;
-      background: #1a96c7;
+      background: #696969;
       display: flex;
       flex-direction: column;
       
@@ -109,7 +109,7 @@
     }
 
     .question{
-      background-color: #15779e;
+      background-color: #0D1C22;
       padding: 5px;
       display: flex;
 /*      flex-direction: column;
@@ -145,7 +145,8 @@
       height: auto;
       width: 90%;
       gap: 7.5px;
-      background-color: #15779e;
+      background-color: #0D1C22;
+	  color: rgba(255,255,255,0.8);
       display: flex;
       flex-direction: row;
     }
@@ -252,8 +253,6 @@
     //   },
     // }
 
-
-
     let Answered = {}
     let QuizPassed = false;
     let Confirmed = false;
@@ -291,9 +290,9 @@
             if (!Answered[quest] && !Confirmed){ 
               if (correct == true){
                 Correct = Correct + 1
-               $(answerCont).css("background-color","green")
+               $(answerCont).css("background-color","#15779e")
               }else{
-                $(answerCont).css("background-color","red")
+                $(answerCont).css("background-color","#15779e")
               }
               Answered[quest] = answer;
             }
@@ -312,11 +311,11 @@
           $(confirmButton).css("font-size", "200%")
           if (perc >= reqPass){
             let correctanswers = $(`<div>You passed with: ${perc}% Answers Correct</div>`).appendTo(confirmButton);
-            $(correctanswers).css("color","green")
+            $(correctanswers).css("color","#15779e")
             QuizPassed = true;
           }else{
             let correctanswers = $(`<div>You failed with: ${perc}% Answers Correct</div>`).appendTo(confirmButton);
-            $(correctanswers).css("color","red")
+            $(correctanswers).css("color","#15779e")
           }
 
           setTimeout(function(){
@@ -330,6 +329,9 @@
           }, 1000)
         })
     }
+
+  
+  // BuildQuiz("Test Quiz", Questions, 24)
 
  
     $(document).on('keyup', function(e) {
