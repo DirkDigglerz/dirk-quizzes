@@ -6,8 +6,8 @@ NewQuiz = function(title,questions,reqPass, eventtype, event, args)
   AwaitingEvent.Type = eventtype
   AwaitingEvent.Args = args
   SetNuiFocus(true,true)
-  if UsingClipBoard then 
-    askStartScenarioInPlace(GetPlayerPed(-1), "WORLD_HUMAN_CLIPBOARD", -1, true)
+  if UsingClipBoard then
+    TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_CLIPBOARD", -1, true)
   end
   SendNUIMessage({
     type    = "newQuiz",
@@ -19,8 +19,7 @@ end
 
 RegisterNUICallback("return", function(data,cb)
   if UsingClipBoard then 
-    ClearPedTasksImmediately(PlayerPedId())
-    ClearAllPedProps(PlayerPedId())
+    ClearPedTasks(PlayerPedId())
   end
   SetNuiFocus(false,false)
   if AwaitingEvent then
